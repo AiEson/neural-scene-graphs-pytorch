@@ -29,7 +29,7 @@ Dataset](https://europe.naverlabs.com/research/computer-vision/proxy-virtual-wor
 ```
 conda create -n neural_scene_graphs python=3.11
 conda activate neural_scene_graphs
-cd neural-scene-graphs
+cd neural-scene-graphs-pytorch
 pip install -r requirements.txt
 bash download_virtual_kitti.sh
 python main.py --config example_configs/config_vkitti2_Scene06.txt
