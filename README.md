@@ -1,4 +1,4 @@
-# Neural Scene Graphs for Dynamic Scene (CVPR 2021)
+# Neural Scene Graphs for Dynamic Scene (CVPR 2021) PyTorch
 
 ![alt text](https://light.princeton.edu/wp-content/uploads/2021/02/scene_graph_isometric_small.png)
 
@@ -11,7 +11,7 @@ objects and a static scene background. Learned representations can be rendered w
 compositions and views. 
 
 Original repository forked from the Implementation of "NeRF: Neural Radiance Fields" by Mildenhall et al.:
-[Original NeRF Implementation](https://github.com/bmild/nerf), [original readme](./nerf_license/README.md)
+[Original NeRF Implementation](https://github.com/bmild/nerf), [original readme](./nerf_license/README.md); and [Origional TensorFlow Implementation](https://github.com/princeton-computational-imaging/neural-scene-graphs.git).
 
 ---
 
@@ -32,35 +32,9 @@ conda activate neural_scene_graphs
 cd neural-scene-graphs
 pip install -r requirements.txt
 bash download_virtual_kitti.sh
-python main.py --config example_configs/config_vkitti2_Scene06.py
+python main.py --config example_configs/config_vkitti2_Scene06.txt
 tensorboard --logdir=example_weights/summaries --port=6006
 ```
-#### Render a pretrained KITTI Scene from a trained Scene Graph Models
-Follow the instructions under [data preparation](#data-preperation) to setup the KITTI dataset.
-
-```
-conda create -n neural_scene_graphs --file requirements.txt -c conda-forge -c menpo
-conda activate neural_scene_graphs
-cd neural-scene-graphs
-bash download_weights_kitti.sh
-python main.py --config example_configs/config_kitti_0006_example_render.py
-tensorboard --logdir=example_weights/summaries --port=6006
-```
-
----
-**_Disclaimer:_** The codebase is optimized to run on larger GPU servers with a lot of free CPU memory. To test on local and low memory, 
-
-1. Use chunk and netchunk in the config files to limit parallel computed rays and sampling points.
-   
-or
-
-2. resize and retrain with 
-```
---training_factor = 'downsampling factor'
-```
-or change to the desired factor in your config file.
-
----
 
 ## Data Preperation
 #### KITTI
